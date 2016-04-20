@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/background_material_dark">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/title_txt"
+        android:textSize="40sp"
+        android:textColor="@color/accent_material_light"
+        android:id="@+id/textView5"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textColor="@color/accent_material_light"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/score_txt_game_over"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/get_name_game_over"
+            android:textColor="@color/accent_material_light"
+            android:layout_weight="8"
+            android:inputType="text" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonRecord"
+            android:background="@color/accent_material_light"
+            android:src="@drawable/ic_done_white"
+            android:layout_weight="2"
+            android:contentDescription="Value" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

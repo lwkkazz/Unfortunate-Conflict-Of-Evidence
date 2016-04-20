@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/background_material_dark">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="40sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#D500F9"
+        android:text="@string/rank_title_text"
+        android:id="@+id/rank_title_text" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:gravity="left"
+            android:textColor="#D500F9"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/player_name"
+            android:id="@+id/textView3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:gravity="right"
+            android:textColor="#D500F9"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/player_score"
+            android:id="@+id/textView4" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:id="@+id/rank_list_view"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

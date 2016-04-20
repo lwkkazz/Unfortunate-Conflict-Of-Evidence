@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Space Combat</string>
+    <string name="new_game">Novo Jogo</string>
+    <string name="leaderboards">Melhores Pontuações</string>
+    <string name="not_implemented">Função Não Implementada!</string>
+    <string name="menu_help">Instruções</string>
+    <string name="menu_help_msg">Incline dispositivo
+                                    para pilotar a nave e toque
+                                    a tela para atirar!
+                                    Quantos pontos você consegue fazer
+                                    antes de ser destruído?</string>
+
+    <string name="title_txt">Você perdeu!</string>
+    <string name="insert_hint">Insira seu nome aqui</string>
+    <string name="button_submit">Guardar nome</string>
+    <string name="rank_title_text">Rankings</string>
+    <string name="player_name">Jogador</string>
+    <string name="player_score">Pontuação</string>
+    <string name="your_score">Sua pontuação: </string>
+
+    <string name="warning">Aviso!</string>
+    <string name="warning_msg">Sair agora não ira gravar sua pontuação atual</string>
+    <string name="warning_exit">Sair</string>
+    <string name="warning_stay">Continuar</string>
+    <string name="interr">Ajuda</string>
+
+
+    <string name="config_txt">Configurações</string>
+
+    <string name="hard_mode">Hard Mode</string>
+    <string name="sound_mode">Habilitar Som?</string>
+    <string name="vibra_mode">Habilitar Vibração?</string>
+    <string name="accept">Aceitar</string>
+    <string name="cancel">Cancelar</string>
+</resources>

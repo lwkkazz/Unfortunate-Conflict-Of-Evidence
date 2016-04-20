@@ -1,0 +1,39 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.edu.ufabc.mobile.spacecombat">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".menu.SplashController"
+            android:label="Space Combat">
+
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN" />
+                <category
+                    android:name="android.intent.category.LAUNCHER" />"
+            </intent-filter>
+        </activity>
+        <activity android:name=".menu.MenuController">
+        </activity>
+        <activity android:name=".game.GameActivity">
+        </activity>
+        <activity android:name=".menu.LeaderboardsController">
+        </activity>
+        <activity android:name=".menu.GameoverController">
+        </activity>
+        <activity android:name=".menu.SettingsController">
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET">
+        </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+        </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE">
+        </uses-permission>
+</manifest>
