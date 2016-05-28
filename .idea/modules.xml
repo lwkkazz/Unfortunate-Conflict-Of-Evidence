@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpaceCombat.iml" filepath="$PROJECT_DIR$/SpaceCombat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Unfortunate-Conflict-Of-Evidence.iml" filepath="$PROJECT_DIR$/Unfortunate-Conflict-Of-Evidence.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
