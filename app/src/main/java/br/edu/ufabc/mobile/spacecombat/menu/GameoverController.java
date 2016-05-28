@@ -2,7 +2,9 @@ package br.edu.ufabc.mobile.spacecombat.menu;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -17,12 +19,18 @@ public class GameoverController extends Activity {
 
     private LocalDatabaseTask dbTask;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.get_name);
+        String TAG = "END_GAME";
+        if (android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP) {
+            setContentView(R.layout.get_name_compat);
+            Log.d(TAG, "Lolli");
+        } else {
+            setContentView(R.layout.get_name);
+            Log.d(TAG, "Lower");
+        }
 
         dbTask = new LocalDatabaseTask(this);
 
@@ -47,7 +55,7 @@ public class GameoverController extends Activity {
 
                 String getName = nameText.getText().toString();
 
-                if(getName == null || getName == "")
+                if (getName.isEmpty())
                     getName = "---";
 
 
