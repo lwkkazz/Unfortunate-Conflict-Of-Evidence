@@ -26,9 +26,12 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import br.edu.ufabc.mobile.spacecombat.R;
 import br.edu.ufabc.mobile.spacecombat.comm.Params;
@@ -42,8 +45,8 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
     private Spacecraft craft;
 
 
-    private CopyOnWriteArrayList<Shoot> shoot;
-    private CopyOnWriteArrayList<AsteroidSprite> astro;
+    private List<Shoot> shoot;
+    private List<AsteroidSprite> astro;
 
     private Vibrator vibra;
 
@@ -83,8 +86,8 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
 
         back    = new Background(ctx);
         craft   = new Spacecraft(ctx);
-        astro   = new CopyOnWriteArrayList<AsteroidSprite>();
-        shoot   = new CopyOnWriteArrayList<Shoot>();
+        astro = Collections.synchronizedList(new ArrayList<AsteroidSprite>());
+        shoot = Collections.synchronizedList(new ArrayList<Shoot>());
 
 
         if(hasSound) {
@@ -148,8 +151,12 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
             }
             for(Shoot tiro:shoot){
                 if(Params.trigger(tiro.getBox(), aero.getBox())){
-                    shoot.remove(tiro);
-                    astro.remove(aero);
+                    tiro.setIsValid(false);
+                    aero.setIsValid(false);
+
+                    //shoot.remove(tiro);
+                    //astro.remove(aero);
+
                     if(hasSound)
                         sound.play(bangID, 1,1,1,0,1);
 
@@ -167,14 +174,40 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
             if (tiro.isValid()) {
                 tiro.update();
             } else {
-                shoot.remove(tiro);
+                tiro.setIsValid(false);
+                //shoot.remove(tiro);
             }
         }
         for (AsteroidSprite aerolito: astro) {
             if (aerolito.isValid()) {
                 aerolito.update();
             } else {
-                astro.remove(aerolito);
+                aerolito.setIsValid(false);
+                //astro.remove(aerolito);
+            }
+        }
+
+        removeMe();
+    }
+
+
+    private void removeMe() {
+
+        synchronized (astro) {
+            Iterator<AsteroidSprite> i = astro.iterator();
+            while (i.hasNext()) {
+                AsteroidSprite aero = i.next();
+                if (!aero.isValid())
+                    i.remove();
+            }
+        }
+
+        synchronized (shoot) {
+            Iterator<Shoot> i = shoot.iterator();
+            while (i.hasNext()) {
+                Shoot tiro = i.next();
+                if (!tiro.isValid())
+                    i.remove();
             }
         }
     }
@@ -316,15 +349,13 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
 
     public void pause(){
         okToRun = false;
-        while (true){
             try {
                 sensorManager.unregisterListener(this);
                 thread.join();
             }catch (Exception e){
                 e.printStackTrace();
             }
-            break;
-        }
+
 
         if(hasSound) {
             mPlayer1.pause();

@@ -31,7 +31,6 @@ public class Background extends GameEntity {
 
             Params.SCREEN_FACTOR = Params.SCREEN_HEIGHT / (float) background.getHeight();
 
-
             height  = background.getHeight();
             width   = background.getWidth();
 
