@@ -222,11 +222,29 @@ public class GameView extends SurfaceView implements Runnable, SensorEventListen
             craft.draw(canvas);
         }
 
-        for(Shoot tiro:shoot)
-            tiro.draw(canvas);
+       //for (Shoot tiro:shoot)
+       //    tiro.draw(canvas);
 
-        for (AsteroidSprite aerolito : astro)
-            aerolito.draw(canvas);
+       //for (AsteroidSprite aerolito : astro)
+       //    aerolito.draw(canvas);
+
+        synchronized (shoot) {
+            Iterator<Shoot> i = shoot.iterator();
+            while (i.hasNext()) {
+                Shoot tiro = i.next();
+                if (tiro.isValid())
+                    tiro.draw(canvas);
+            }
+        }
+
+        synchronized (astro) {
+            Iterator<AsteroidSprite> i = astro.iterator();
+            while (i.hasNext()) {
+                AsteroidSprite aero = i.next();
+                if (aero.isValid())
+                    aero.draw(canvas);
+            }
+        }
 
         uiDraw(canvas);
     }
